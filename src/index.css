@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(190, 190, 233);
 }
 
 /* general rules */
@@ -19,27 +20,50 @@ body {
 }
 
 .App{
-  background-color: rgb(190, 190, 233);
   color: rgb(41, 37, 37);
   width:100%;
   max-width: 1440px;
+  text-align: center;
 }
 
 .Navbar {
   background-color: rgb(88, 88, 223);
   display: flex;
+  margin: auto;
   justify-content: space-between;
   align-items: center;
-  padding:  1em;
+  border: 1px solid red;
+  padding:  1em 13em;
 }
 
 .header-title {
 }
 
 main {
+  /* text-align: center; */
+  border: 1px solid red  ;
   text-align: center;
+
 }
 
+main .phone-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 60em;
+  border: 1px solid red ;
+}
+
+.item-desc{
+  border: 1px solid red ;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
 .empty{
   visibility: hidden;
 }
