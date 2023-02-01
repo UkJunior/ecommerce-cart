@@ -11,7 +11,7 @@ const initialState = {
   amount: 0,
   total: 0,
   cart: cartItem,
-  loading: false,
+  loading: true,
 };
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -33,6 +33,7 @@ const AppProvider = ({ children }) => {
     const response = await fetch(url);
     const data = await response.json();
     console.log("testing", data);
+
     dispatch({ type: "DISPLAY", payload: data });
 
   };
@@ -40,6 +41,12 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchData();  
   }, []);
+
+  useEffect(()=>{
+   setTimeout(()=>{
+      dispatch({type:'LOADED'})
+    },3000)
+  })
 
   useEffect(()=>{
       dispatch({type: 'GET-TOTAL'})

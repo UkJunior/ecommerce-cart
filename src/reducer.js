@@ -48,4 +48,8 @@ export const reducer = (state, action) => {
         total = parseFloat(total.toFixed(2));
         return { ...state, total: total, amount: amount };
     }
+    
+    if(action.type === 'LOADED'){
+        return {...state, loading: false}
+    }
 }
