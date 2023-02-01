@@ -1,14 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
-import CartItem from "./CartItem";
-import { useState, useEffect } from "react";
+import CartContainer from "./CartContainer";
 
 function App() {
   return (
-    <div className="App">
+    <main>
       <Nav />
-      <CartItem />
-    </div>
+      <CartContainer />
+    </main>
   );
 }
 

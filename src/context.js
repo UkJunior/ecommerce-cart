@@ -25,8 +25,8 @@ const AppProvider = ({ children }) => {
   const removeItem = (id) =>{
       dispatch({type: 'REMOVE-ITEM', payload: id})
   }
-  const clearCart = (id) =>{
-      dispatch({type: 'CLEAR-ITEMS', payload: id})
+  const clearCart = () =>{
+      dispatch({type: 'CLEAR-ITEMS'})
   }
 
   const fetchData = async () => {

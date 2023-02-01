@@ -1,51 +1,30 @@
 import React from 'react';
-import { FaAngleDown } from "react-icons/fa";
-import { FaAngleUp } from "react-icons/fa";
 import { useGlobalContext } from './context';
 
-const CartItem = () => {
-    const { increase, decrease, removeItem, cart, clearCart, total } = useGlobalContext()
-
+const CartItem = ({ id, price, title, img, amount }) => {
+    const { increase, decrease, removeItem } = useGlobalContext()
     return (
-        <>
-            <main>
-                {cart.map((item) => {
-                    const { id, price, title, img, amount } = item;
-                    return (
-                        <article key={id} className="phone-section">
-                            <img src={img} alt={title} style={{ maxWidth: 100 }} />
-                            <div className="item-desc">
-                                <div>
-                                    <h4>{title}</h4>
-                                    <p>${price}</p>
-                                    <button className="remove-btn" onClick={() => removeItem(id)}>
-                                        remove
-                                    </button>
-                                </div>
-
-                                <div className="item-control">
-                                    <button className="control" onClick={() => increase(id)}>
-                                        +{FaAngleUp}
-                                    </button>
-                                    <h2>{amount}</h2>
-                                    <button className="control" onClick={() => decrease(id)}>
-                                        -{FaAngleDown}
-                                    </button>
-                                </div>
-                            </div>
-                        </article>
-                    );
-                })}
-            </main>
-            <hr />
-            <footer>
-                <div className="price-container">
-                    <h3>Total</h3>
-                    <h3 className="total-price">${total}</h3>
-                </div>
-                <button className="clear-btn" onClick={clearCart}>clear cart</button>
-            </footer>
-        </>
+        <article className="cart-item">
+            <img src={img} alt={title} style={{ maxWidth: 100 }} />
+            <div>
+                <h4>{title}</h4>
+                <p className="item-price">${price}</p>
+                <button className="remove-btn" onClick={() => removeItem(id)}>remove</button>
+            </div>
+            <div>
+                <button className="amount-btn" onClick={() => increase(id)}>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
+                        <path d='M10.707 7.05L10 6.343 4.343 12l1.414 1.414L10 9.172l4.243 4.242L15.657 12z' />
+                    </svg>
+                </button>
+                <p className='amount'>{amount}</p>
+                <button className="amount-btn" onClick={() => decrease(id)}>
+                    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'>
+                        <path d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z' />
+                    </svg>
+                </button>
+            </div>
+        </article>
     )
 }
 
